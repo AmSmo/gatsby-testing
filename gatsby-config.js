@@ -15,6 +15,8 @@ module.exports = {
     description: `An opinionated starter for Gatsby`,
     url: `https://something.or.other`,
     logo: `static/logo.png`,
+    menulinks: [{link: '/about', title: "About"}, {link: "/", title:"Index"}, {link: "/", title:"Home"},{link: "/events", title:"Events"} ]
+    ,
     twitter: `mor10`,
   },
   plugins: [

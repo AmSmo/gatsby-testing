@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-
+import MenuNav from './menunav'
 import style from "./header.module.css"
 
-const Header = ({ siteTitle, siteDescription }) => (
+const Header = ({ siteTitle, menulinks, siteDescription }) => (
   <header id="site-header" className={style.masthead} role="banner">
     <div className={style.masthead_info}>
       <Link to="/">
@@ -15,6 +15,7 @@ const Header = ({ siteTitle, siteDescription }) => (
           alt={siteTitle}
           className={style.site_logo}
         />
+        <MenuNav menulinks={menulinks} / >
         <div className={style.site_title}>{siteTitle}</div>
         <div className={style.site_description}>{siteDescription}</div>
       </Link>

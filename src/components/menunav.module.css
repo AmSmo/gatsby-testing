@@ -1,0 +1,7 @@
+.menubar {
+    display: inline-flex;
+    justify-content: flex-end;
+    text-align: right;
+    right: 0px;
+    width: 100%;
+}
