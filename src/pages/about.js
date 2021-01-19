@@ -1,10 +1,11 @@
 import React from "react"
-
+import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RobotImage from "../components/robotimage"
 
-const AboutPage = () => {
+const AboutPage = ({data}) => {
+  console.log(data)
   return (
     <Layout>
       <SEO
@@ -16,6 +17,9 @@ const AboutPage = () => {
         // article
       />
       <section>
+        <Img fluid={data.headerImage.childImageSharp.fluid}
+          alt="Robots"
+        />
         <h1>About this site</h1>
         <RobotImage
           src={"/images/bubbles-callout.png"}
@@ -39,11 +43,10 @@ const AboutPage = () => {
 }
 
 export default AboutPage
-
 export const query = graphql`
   {
     headerImage: file(
-      relativePath: { eq: "robots-androids-and-cybords-oh-my-1184x360.jpg"}
+      relativePath: { eq: "robots-androids-and-cyborgs-oh-my-1184x360.jpg"}
       ) {
         childImageSharp{
           fluid(maxWidth:1184){
