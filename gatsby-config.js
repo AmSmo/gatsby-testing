@@ -22,6 +22,12 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-css-customs`,
+    `gatsby-plugin-css-customs`, {resolve: `gatsby-plugin-styled-components`},
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/content/images/`,
+      },
   ],
 }
