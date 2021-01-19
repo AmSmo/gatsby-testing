@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import style from "./events.module.css"
 
 const IndexPage = ({data}) => {
+  console.log(data.futureEvents)
   return (
     <Layout>
       <SEO
@@ -21,11 +22,10 @@ const IndexPage = ({data}) => {
         />
         <h1 className={style.heading}>Events</h1>
         <div>
-          <p>
-            We attend and present at many events. Come join us! 
+          
             <Img fixed={data.nextToText.childImageSharp.fixed}
               alt="stuff" />
-          </p>
+
         </div>
           
       </section>
@@ -54,6 +54,19 @@ export const query = graphql`
             fixed(width: 200){
               ...GatsbyImageSharpFixed
             }
+          }
+        },
+        futureEvents: allEvent(
+          filter: { collection: {eq: "future"} }
+          sort: { fields: start, order: ASC} 
+        ){
+          nodes {
+            id
+            name
+            start
+            end
+            location
+            url
           }
         }
       
