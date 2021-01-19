@@ -39,3 +39,18 @@ const AboutPage = () => {
 }
 
 export default AboutPage
+
+export const query = graphql`
+  {
+    headerImage: file(
+      relativePath: { eq: "robots-androids-and-cybords-oh-my-1184x360.jpg"}
+      ) {
+        childImageSharp{
+          fluid(maxWidth:1184){
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    
+  }
+`
