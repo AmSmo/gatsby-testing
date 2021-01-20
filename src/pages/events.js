@@ -1,11 +1,22 @@
 import React from "react"
+<<<<<<< HEAD
 import Img from 'gatsby-image'
+=======
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
+
+>>>>>>> upstream/06_04b
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Event from "../components/event"
 import style from "./events.module.css"
 
+<<<<<<< HEAD
 const IndexPage = ({data}) => {
   console.log(data)
+=======
+const IndexPage = ({ data }) => {
+>>>>>>> upstream/06_04b
   return (
     <Layout>
       <SEO
@@ -17,10 +28,14 @@ const IndexPage = ({data}) => {
         // article
       />
       <section className={style.wrapper}>
+<<<<<<< HEAD
         <Img fluid={data.headerImage.childImageSharp.fluid}
           alt="Printer"
         />
         {console.log(data)}
+=======
+        <Img fluid={data.headerImage.childImageSharp.fluid} alt="Robots" />
+>>>>>>> upstream/06_04b
         <h1 className={style.heading}>Events</h1>
         <div className={style.events}>
           <div className={style.inEvents}>
@@ -50,12 +65,31 @@ const IndexPage = ({data}) => {
         </div>
           
       </section>
+      <section className={style.events}>
+        <div className={style.eventList}>
+          <h2 className={style.eventHeading}>Future events</h2>
+          <ul className={style.events__list}>
+            {data.futureEvents.nodes.map(event => (
+              <Event key={event.id} event={event} />
+            ))}
+          </ul>
+        </div>
+        <div className={style.eventList}>
+          <h2 className={style.eventHeading}>Past events</h2>
+          <ul className={style.events__list}>
+            {data.pastEvents.nodes.map(event => (
+              <Event key={event.id} event={event} />
+            ))}
+          </ul>
+        </div>
+      </section>
     </Layout>
   )
 }
 
 export default IndexPage
 
+<<<<<<< HEAD
 
 export const query = graphql`
   {
@@ -93,17 +127,56 @@ export const query = graphql`
     pastEvents: allEvent(
       filter: { collection: { eq: "past" } }
       sort: { fields: start, order: ASC }
+=======
+export const query = graphql`
+  {
+    headerImage: file(
+      relativePath: { eq: "getting-creative-with-3-d-printers-1184x360.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 1184) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    futureEvents: allEvent(
+      filter: { collection: { eq: "future" } }
+      sort: { fields: startDate, order: ASC }
     ) {
       nodes {
         id
         name
-        start
-        end
+        startDate
+        endDate
         location
         url
       }
     }
+    pastEvents: allEvent(
+      filter: { collection: { eq: "past" } }
+      sort: { fields: startDate, order: ASC }
+>>>>>>> upstream/06_04b
+    ) {
+      nodes {
+        id
+        name
+<<<<<<< HEAD
+        start
+        end
+=======
+        startDate
+        endDate
+>>>>>>> upstream/06_04b
+        location
+        url
+      }
+    }
+<<<<<<< HEAD
       
     
       }
 `
+=======
+  }
+`
+>>>>>>> upstream/06_04b

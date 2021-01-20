@@ -18,28 +18,89 @@ module.exports = {
     menulinks: [{link: '/about', title: "About"}, {link: "/", title:"Index"}, {link: "/", title:"Home"},{link: "/events", title:"Events"} ]
     ,
     twitter: `mor10`,
+    menuLinks: [
+      {
+        name: `Home`,
+        link: `/`,
+      },
+      {
+        name: `About`,
+        link: `/about`,
+      },
+      {
+        name: `Events`,
+        link: `/events`,
+      },
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
+<<<<<<< HEAD
     `gatsby-plugin-css-customs`, 
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-image`,
+=======
+    `gatsby-plugin-css-customs`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+>>>>>>> upstream/06_04b
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/content/images/`,
+<<<<<<< HEAD
       }},
+=======
+      },
+    },
+>>>>>>> upstream/06_04b
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `events`,
         path: `${__dirname}/content/events/`,
+<<<<<<< HEAD
       }},
       {resolve: `gatsby-transformer-yaml`,
     options: {typeName: `Event` }}
+=======
+      },
+    },
+    {
+      resolve: `gatsby-transformer-yaml`,
+      options: {
+        typeName: `Event`, // a fixed string
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `articles`,
+        path: `${__dirname}/content/articles/`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 1080,
+              quality: 100,
+            },
+          },
+        ],
+      },
+    },
+>>>>>>> upstream/06_04b
   ],
 }

@@ -25,10 +25,17 @@ const Layout = ({ children }) => {
         siteMetadata {
           title
           description
+<<<<<<< HEAD
           menulinks {
             link
             title
         }
+=======
+          menuLinks {
+            name
+            link
+          }
+>>>>>>> upstream/06_04b
         }
       }
     }
@@ -42,7 +49,11 @@ const Layout = ({ children }) => {
       <Header
         siteTitle={data.site.siteMetadata.title}
         siteDescription={data.site.siteMetadata.description}
+<<<<<<< HEAD
         menulinks={data.site.siteMetadata.menulinks}
+=======
+        menuLinks={data.site.siteMetadata.menuLinks}
+>>>>>>> upstream/06_04b
       />
       <main id="primary" className={style.site_main}>
         {children}
