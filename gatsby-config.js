@@ -36,39 +36,22 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
-<<<<<<< HEAD
-    `gatsby-plugin-css-customs`, 
-    `gatsby-plugin-styled-components`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-image`,
-=======
     `gatsby-plugin-css-customs`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
->>>>>>> upstream/06_04b
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/content/images/`,
-<<<<<<< HEAD
-      }},
-=======
       },
     },
->>>>>>> upstream/06_04b
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `events`,
         path: `${__dirname}/content/events/`,
-<<<<<<< HEAD
-      }},
-      {resolve: `gatsby-transformer-yaml`,
-    options: {typeName: `Event` }}
-=======
       },
     },
     {
@@ -101,6 +84,5 @@ module.exports = {
         ],
       },
     },
->>>>>>> upstream/06_04b
   ],
 }
