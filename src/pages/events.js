@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import style from "./events.module.css"
 
 const IndexPage = ({data}) => {
-  console.log(data.futureEvents)
+  console.log(data)
   return (
     <Layout>
       <SEO
@@ -20,12 +20,33 @@ const IndexPage = ({data}) => {
         <Img fluid={data.headerImage.childImageSharp.fluid}
           alt="Printer"
         />
+        {console.log(data)}
         <h1 className={style.heading}>Events</h1>
-        <div>
-          
+        <div className={style.events}>
+          <div className={style.inEvents}>
+          {data.futureEvents.nodes.map(future => {
+            return(
+              <div>
+                
+                <p className={style.title}>{future.name}</p>
+                <p className={style.location}>{future.location}</p>
+                <p className={style.url}>{future.url}</p>
+                <p className={style.start}>Start: {future.start}</p>
+                <p className={style.end}>End: {future.end}</p>
+              </div>
+            )
+          })}
+          </div>
+          <div className={style.inEvents}>
+
             <Img fixed={data.nextToText.childImageSharp.fixed}
               alt="stuff" />
+          </div>
+          <div className={style.inEvents}>
 
+            <Img fixed={data.nextToText.childImageSharp.fixed}
+              alt="stuff" />
+          </div>
         </div>
           
       </section>
@@ -57,7 +78,7 @@ export const query = graphql`
           }
         },
         futureEvents: allEvent(
-          filter: { collection: {eq: "future"} }
+          filter: { collection:{ eq: "future" }}
           sort: { fields: start, order: ASC} 
         ){
           nodes {
@@ -68,7 +89,20 @@ export const query = graphql`
             location
             url
           }
-        }
+        },
+    pastEvents: allEvent(
+      filter: { collection: { eq: "past" } }
+      sort: { fields: start, order: ASC }
+    ) {
+      nodes {
+        id
+        name
+        start
+        end
+        location
+        url
+      }
+    }
       
     
       }
